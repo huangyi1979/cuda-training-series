@@ -1,3 +1,5 @@
+# [CUDA Multithreading with Streams](https://www.olcf.ornl.gov/calendar/cuda-multithreading/)
+
 ## **1. Streams Review**
 
 For your first task, you are given a code that performs a silly computation element-wise on a vector. We already implemented a chunked version of this code using multiple CUDA streams in Homework 7. Let's start by reviewing the performance impact that CUDA streams had on this code.
@@ -39,7 +41,7 @@ srun -C gpu -N 1 -n 1 -t 10 -A ntrain --reservation=cuda_training -q shared -G 1
 
 or grab a GPU node first, then run interactively:
 ```
-module load cgpu cuda 
+module load cgpu cuda
 salloc -C gpu -N 1 -t 60 -A ntrain --reservation=cuda_training -q shared -G 1 -c 8
 srun -n 1 ./streams
 ```
@@ -97,7 +99,7 @@ If you need help, refer to *streams_solution.cu*.
 
 ## **3. Bonus Task - Multi-GPU**
 
-Remember that a CUDA stream is tied to a particular GPU. How can we combine CPU threading with more than a single GPU? If you're feeling adventurous, try adapting this homework's code to submit work to 4 GPUs, instead of just one. Note that this will require keeping track of which CUDA stream was bound to which GPU when it was created. Feel free to increase the problem size in order to ensure that there is enough work to observe a performance impact. Compile and run your code using the following instructions. 
+Remember that a CUDA stream is tied to a particular GPU. How can we combine CPU threading with more than a single GPU? If you're feeling adventurous, try adapting this homework's code to submit work to 4 GPUs, instead of just one. Note that this will require keeping track of which CUDA stream was bound to which GPU when it was created. Feel free to increase the problem size in order to ensure that there is enough work to observe a performance impact. Compile and run your code using the following instructions.
 
 On Summit:
 ```

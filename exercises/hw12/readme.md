@@ -1,3 +1,5 @@
+# [CUDA Debugging](https://www.olcf.ornl.gov/calendar/cuda-debugging/)
+
 # **Task 1**
 
 In this task we will explore using compute-sanitizer.  A complete tiled matrix-multiply example code is provided in the CUDA programming guide. The *task1.cu* code includes this code with a few changes, and also a main() routine to drive the operation.  You are providing support services to a cluster user community, and one of your users has presented this code with the report that "CUDA error checking doesn't show any errors, but I'm not getting the right answer.  Please help!"
@@ -39,7 +41,7 @@ srun -C gpu -N 1 -n 1 -t 10 -A ntrain --reservation=cuda_debug -q shared -G 1 -c
 
 or grab a GPU node first, then run interactively:
 ```
-module load cgpu cuda 
+module load cgpu cuda
 salloc -C gpu -N 1 -t 60 -A ntrain --reservation=cuda_debug -q shared -G 1 -c 1
 srun -n 1 ./task1
 ```
@@ -55,7 +57,7 @@ Success!
 
 But unfortunately we don't see that.
 
-## Part A 
+## Part A
 
 Use basic *compute-sanitizer* functionality (no additional switches) to identify a problem in the code. Using the output from *compute-sanitizer*, identify the offending line of code. Fix this issue.
 

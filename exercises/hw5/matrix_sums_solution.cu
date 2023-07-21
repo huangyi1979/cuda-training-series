@@ -30,7 +30,7 @@ __global__ void row_sums(const float *A, float *sums, size_t ds){
 
      while (tidx < ds) {  // block stride loop to load data
         sdata[tid] += A[idx*ds+tidx];
-        tidx += blockDim.x;  
+        tidx += blockDim.x;
         }
 
      for (unsigned int s=blockDim.x/2; s>0; s>>=1) {
@@ -49,7 +49,7 @@ __global__ void column_sums(const float *A, float *sums, size_t ds){
   if (idx < ds){
     float sum = 0.0f;
     for (size_t i = 0; i < ds; i++)
-      sum += A[idx+ds*i];         // write a for loop that will cause the thread to iterate down a column, keeeping a running sum, and write the result to sums
+      sum += A[idx+ds*i];         // write a for loop that will cause the thread to iterate down a column, keeping a running sum, and write the result to sums
     sums[idx] = sum;
 }}
 bool validate(float *data, size_t sz){
@@ -78,7 +78,7 @@ int main(){
   cudaMemcpy(h_sums, d_sums, DSIZE*sizeof(float), cudaMemcpyDeviceToHost);
   //cuda processing sequence step 3 is complete
   cudaCheckErrors("kernel execution failure or cudaMemcpy H2D failure");
-  if (!validate(h_sums, DSIZE)) return -1; 
+  if (!validate(h_sums, DSIZE)) return -1;
   printf("row sums correct!\n");
   cudaMemset(d_sums, 0, DSIZE*sizeof(float));
   column_sums<<<(DSIZE+block_size-1)/block_size, block_size>>>(d_A, d_sums, DSIZE);
@@ -88,8 +88,8 @@ int main(){
   cudaMemcpy(h_sums, d_sums, DSIZE*sizeof(float), cudaMemcpyDeviceToHost);
   //cuda processing sequence step 3 is complete
   cudaCheckErrors("kernel execution failure or cudaMemcpy H2D failure");
-  if (!validate(h_sums, DSIZE)) return -1; 
+  if (!validate(h_sums, DSIZE)) return -1;
   printf("column sums correct!\n");
   return 0;
 }
-  
+

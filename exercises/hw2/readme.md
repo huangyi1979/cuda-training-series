@@ -1,4 +1,4 @@
-# Homework 2
+# [CUDA Shared Memory](https://www.olcf.ornl.gov/calendar/cuda-shared-memory/#tw-tab-content-3-1)
 
 These exercises will help reinforce the concept of Shared Memory on the GPU.
 

@@ -1,3 +1,5 @@
+# [Fundamental CUDA Optimization (Part 2)](https://www.olcf.ornl.gov/calendar/fundamental-cuda-optimization-part2/#tw-tab-content-3-1)
+
 ## **1. Matrix Row/Column Sums**
 
 Your first task is to create a simple matrix row and column sum application in CUDA. The code skeleton is already given to you in *matrix_sums.cu*. Edit that file, paying attention to the FIXME locations, so that the output when run is like this:
@@ -78,7 +80,7 @@ Next, launch *Nsight* as follows:
 lsfrun nv-nsight-cu-cli --metrics l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum,l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum ./matrix_sums
 ```
 
-Our goal is to measure the global memory load efficiency of our kernels. In this case we have asked for two metrics: "*l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum*" (the number of global memory load requests) and "*l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum*" (the number of sectors requested for global loads). This first metric above represents the denominator (requests) of the desired measurement (transactions per request) and the second metric represents the numerator (transactions). Dividing these numbers will give us the number of transactions per request. 
+Our goal is to measure the global memory load efficiency of our kernels. In this case we have asked for two metrics: "*l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum*" (the number of global memory load requests) and "*l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum*" (the number of sectors requested for global loads). This first metric above represents the denominator (requests) of the desired measurement (transactions per request) and the second metric represents the numerator (transactions). Dividing these numbers will give us the number of transactions per request.
 
 What similarities or differences do you notice between the *row_sum* and *column_sum* kernels?
 Do the kernels (*row_sum*, *column_sum*) have the same or different efficiencies?
@@ -88,4 +90,3 @@ How does this correspond to the observed kernel execution times for the first pr
 Can we improve this?  (Stay tuned for the next CUDA training session.)
 
 Here is a useful blog to help you get familiar with Nsight Compute: https://devblogs.nvidia.com/using-nsight-compute-to-inspect-your-kernels/
-

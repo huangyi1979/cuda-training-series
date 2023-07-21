@@ -1,3 +1,5 @@
+# [Atomics, Reductions, and Warp Shuffle](https://www.olcf.ornl.gov/calendar/cuda-atomics-reductions-and-warp-shuffle/#tw-tab-content-3-1)
+
 ## **1. Comparing Reductions**
 
 For your first task, the code is already written for you. We will compare 3 of the reductions given during the presentation: the naive atomic-only reduction, the classical parallel reduction with atomic finish, and the warp shuffle reduction (with atomic finish).

@@ -1,3 +1,5 @@
+# [Fundamental CUDA Optimization (Part 1)](https://www.olcf.ornl.gov/calendar/fundamental-cuda-optimization-part1/#tw-tab-content-3-1)
+
 ## **1. Vector Add**
 
 We'll use a slight variation on the vector add code presented in a previous homework (*vector_add.cu*).  Edit the code to build a complete vector_add program. You can refer to *vector_add_solution.cu* for a complete example.  For this example, we have made a change to the kernel to use something called a grid-stride loop.  This topic will be dealt with in more detail in a later training session, but for now we can describe it as a flexible kernel design method that allows a simple kernel to handle an arbitrary size data set with an arbitrary size "grid", i.e. the configuration of blocks and threads associated with the kernel launch.  If you'd like to read more about grid-stride loops right now, you can visit https://devblogs.nvidia.com/cuda-pro-tip-write-flexible-kernels-grid-stride-loops/
@@ -130,4 +132,4 @@ Let's fill the GPU now.  We learned that a Tesla V100 has 80 SMs, and each SM ca
 
 (You should now observe a kernel duration that has dropped to the microsecond range - ~500us  - and a memory throughput that should be "close" to the peak theoretical of 900GB/s for a Tesla V100).
 
-For the Tesla V100 GPU, this calculation of 80 SMs * 2048 threads/SM = 164K threads is our definition of "lots of threads". 
+For the Tesla V100 GPU, this calculation of 80 SMs * 2048 threads/SM = 164K threads is our definition of "lots of threads".

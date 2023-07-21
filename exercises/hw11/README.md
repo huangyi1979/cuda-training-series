@@ -1,4 +1,4 @@
-# Multi-Process Service
+# [CUDA Multi Process Service](https://www.olcf.ornl.gov/calendar/cuda-multi-process-service/)
 
 On Cori GPU, first grab an interactive session. Make sure that you request at least a few slots for MPI, but we'll only need one GPU.
 
